@@ -1,5 +1,4 @@
 package com.myapplicationdev.android.tw_listview;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,10 +10,12 @@ import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
-    ListView lv;
+    ListView lvModules;
     TextView tvYear;
-    ArrayList<Module> modules;
     ArrayAdapter aa;
+    TextView tvCode;
+    ArrayList<Module>module;
+
 
 
     @Override
@@ -22,40 +23,38 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        lv = (ListView) this.findViewById(R.id.lvModules);
+        lvModules = (ListView) this.findViewById(R.id.lvModules);
         tvYear = (TextView) findViewById(R.id.tvYear);
+        tvCode = (TextView)  findViewById(R.id.tVModuleCode);
 
         Intent i = getIntent();
         String year = i.getStringExtra("year");
         tvYear.setText(year);
 
+        module = new ArrayList<Module>();
 
+        if (year.equalsIgnoreCase("Year 1")) {
+            module.add(new Module("C111", true));
+            module.add(new Module("C112", false));
+            module.add(new Module("C113", true));
 
-        if(year.equalsIgnoreCase("year 1")){
-            Module module1 = new Module("C111",false);
-            Module module2 = new Module("C105", true);
-            Module module3 = new Module("A113",false);
-            modules.add(module1);
-            modules.add(module2);
-            modules.add(module3);
-        }else if(year.equalsIgnoreCase("year 2")){
-            Module module1 = new Module("C203",true);
-            Module module2 = new Module("C346", true);
-            Module module3 = new Module("C202",true);
-            modules.add(module1);
-            modules.add(module2);
-            modules.add(module3);
-        }else{
-            Module module1 = new Module("C347",true);
-            Module module2 = new Module("C349", true);
-            Module module3 = new Module("C302",true);
-            modules.add(module1);
-            modules.add(module2);
-            modules.add(module3);
+        } else if (year.equalsIgnoreCase("Year 2")) {
+            module.add(new Module("C208", true));
+            module.add(new Module("C200", false));
+            module.add(new Module("C346", false));
+
+        } else {
+            module.add(new Module("C207", true));
+            module.add(new Module("C206", true));
+            module.add(new Module("C343", true));
+
         }
 
-        aa = new ModuleAdapter(this, R.layout.row, modules);
-        lv.setAdapter(aa);
+
+
+
+        aa = new ModuleAdapter(this, R.layout.row, module);
+        lvModules.setAdapter(aa);
 
 
 

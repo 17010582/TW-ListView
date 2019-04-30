@@ -18,7 +18,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
     private ImageView ivProgram;
 
 
-    public ModuleAdapter(Context context, int resource, ArrayList<Module> objects){
+    public ModuleAdapter(Context context, int resource, ArrayList<Module> objects) {
         super(context, resource, objects);
         // Store the food that is passed to this adapter
         moduleArrayList = objects;
@@ -36,9 +36,9 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         View rowView = inflater.inflate(R.layout.row, parent, false);
 
         // Get the TextView object
-        tvModuleCode =         rowView.findViewById(R.id.tVModuleCode);
+        tvModuleCode = rowView.findViewById(R.id.tVModuleCode);
         // Get the ImageView object
-        ivProgram =             rowView.findViewById(R.id.ivProgram);
+        ivProgram = rowView.findViewById(R.id.ivProgram);
 
 
         // The parameter "position" is the index of the
@@ -49,10 +49,9 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
 
         tvModuleCode.setText(currentFood.getMc());
         // Set the image to star or nostar accordingly
-        if(currentFood.isProgramming()) {
+        if (currentFood.isProgramming()) {
             ivProgram.setImageResource(R.drawable.prog);
-        }
-        else {
+        } else {
             ivProgram.setImageResource(R.drawable.nonprog);
         }
         // Return the nicely done up View to the ListView
