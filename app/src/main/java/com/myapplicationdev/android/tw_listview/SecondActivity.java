@@ -14,7 +14,7 @@ public class SecondActivity extends AppCompatActivity {
     ListView lv;
     TextView tvYear;
     ArrayList<Module> modules;
-    ArrayAdapter ab;
+    ArrayAdapter aa;
 
 
     @Override
@@ -54,8 +54,8 @@ public class SecondActivity extends AppCompatActivity {
             modules.add(module3);
         }
 
-        ab = new ModuleAdapter(this, R.layout.row, modules);
-        lv.setAdapter(ab);
+        aa = new ModuleAdapter(this, R.layout.row, modules);
+        lv.setAdapter(aa);
 
 
 

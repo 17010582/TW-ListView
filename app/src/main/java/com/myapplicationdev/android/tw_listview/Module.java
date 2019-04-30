@@ -1,15 +1,15 @@
 package com.myapplicationdev.android.tw_listview;
 
 public class Module {
-    String moduleCode;
+    String mc;
     boolean isProgramming;
 
-    public String getModuleCode() {
-        return moduleCode;
+    public String getMc() {
+        return mc;
     }
 
-    public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode;
+    public void setMc(String mc) {
+        this.mc = mc;
     }
 
     public boolean isProgramming() {
@@ -20,8 +20,8 @@ public class Module {
         isProgramming = programming;
     }
 
-    public Module(String moduleCode, boolean isProgramming) {
-        this.moduleCode = moduleCode;
+    public Module(String mc, boolean isProgramming) {
+        this.mc = mc;
         this.isProgramming = isProgramming;
     }
 }

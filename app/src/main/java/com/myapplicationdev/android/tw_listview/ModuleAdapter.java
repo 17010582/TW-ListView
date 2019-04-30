@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ModuleAdapter extends ArrayAdapter<Module> {
 
-    private ArrayList<Module> modules;
+    private ArrayList<Module> moduleArrayList;
     private Context context;
     private TextView tvModuleCode;
     private ImageView ivProgram;
@@ -21,7 +21,7 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
     public ModuleAdapter(Context context, int resource, ArrayList<Module> objects){
         super(context, resource, objects);
         // Store the food that is passed to this adapter
-        modules = objects;
+        moduleArrayList = objects;
         // Store Context object as we would need to use it later
         this.context = context;
     }
@@ -44,10 +44,10 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         // The parameter "position" is the index of the
         //  row ListView is requesting.
         //  We get back the food at the same index.
-        Module currentFood = modules.get(position);
+        Module currentFood = moduleArrayList.get(position);
         // Set the TextView to show the food
 
-        tvModuleCode.setText(currentFood.getModuleCode());
+        tvModuleCode.setText(currentFood.getMc());
         // Set the image to star or nostar accordingly
         if(currentFood.isProgramming()) {
             ivProgram.setImageResource(R.drawable.prog);
